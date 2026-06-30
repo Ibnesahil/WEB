@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahil AI School — AI Seekhein, Asaan Tareeqe Se</title>
+<meta name="description" content="Sahil AI School — Farukh Siddiqui ke sath AI tools ko practically seekhein. WhatsApp channel join karein aur AI ka istemal karna seekhein.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#13161c;
+    --ink-soft:#4b5160;
+    --paper:#ffffff;
+    --paper-tint:#f6f8f7;
+    --line:#e7e9e6;
+    --emerald:#0f8b6c;
+    --emerald-deep:#0a6650;
+    --emerald-tint:#e8f6f1;
+    --amber:#ff8a3d;
+    --amber-tint:#fff1e6;
+    --radius:18px;
+    --maxw:1180px;
+    --ease:cubic-bezier(.16,.84,.32,1);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Poppins', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+
+  ::selection{background:var(--emerald); color:#fff;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  :focus-visible{
+    outline:3px solid var(--amber);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:1.05rem;
+    letter-spacing:-.02em;
+  }
+  .brand .mark{
+    width:38px; height:38px;
+    border-radius:10px;
+    background:linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:800; font-size:1rem;
+    flex-shrink:0;
+    box-shadow:0 6px 16px -6px rgba(15,139,108,.55);
+  }
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-size:.92rem;
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  .nav-links a{transition:color .2s var(--ease);}
+  .nav-links a:hover{color:var(--emerald-deep);}
+  .nav-cta{
+    display:flex; align-items:center; gap:14px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 22px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:.9rem;
+    transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+    cursor:pointer;
+    border:none;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--emerald);
+    color:#fff;
+    box-shadow:0 10px 24px -10px rgba(15,139,108,.65);
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px -10px rgba(15,139,108,.75);
+    background:var(--emerald-deep);
+  }
+  .btn-ghost{
+    background:transparent;
+    border:1.5px solid var(--line);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--emerald); color:var(--emerald-deep);}
+
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+  .burger span{width:24px; height:2px; background:var(--ink); border-radius:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:110px 0 90px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-180px; right:-160px;
+    width:560px; height:560px;
+    background:radial-gradient(circle, var(--emerald-tint) 0%, transparent 70%);
+    z-index:0;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-220px; left:-180px;
+    width:480px; height:480px;
+    background:radial-gradient(circle, var(--amber-tint) 0%, transparent 70%);
+    z-index:0;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:60px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--emerald-tint);
+    color:var(--emerald-deep);
+    font-size:.8rem;
+    font-weight:600;
+    padding:7px 16px;
+    border-radius:999px;
+    margin-bottom:22px;
+    opacity:0;
+    animation:fadeUp .7s var(--ease) .1s forwards;
+  }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--emerald); animation:pulse 1.8s infinite;}
+  @keyframes pulse{
+    0%,100%{opacity:1; transform:scale(1);}
+    50%{opacity:.4; transform:scale(.7);}
+  }
+
+  h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.8rem);
+    font-weight:800;
+    letter-spacing:-.03em;
+    line-height:1.08;
+    margin-bottom:22px;
+    opacity:0;
+    animation:fadeUp .8s var(--ease) .2s forwards;
+  }
+  h1 .accent{
+    color:var(--emerald);
+    position:relative;
+    white-space:nowrap;
+  }
+  h1 .accent::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:6px;
+    height:.32em;
+    background:var(--amber-tint);
+    z-index:-1;
+    border-radius:4px;
+  }
+
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+    max-width:520px;
+    margin-bottom:36px;
+    font-weight:400;
+    opacity:0;
+    animation:fadeUp .8s var(--ease) .35s forwards;
+  }
+
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+    opacity:0;
+    animation:fadeUp .8s var(--ease) .5s forwards;
+  }
+  .btn-lg{padding:15px 28px; font-size:.98rem;}
+
+  .hero-stats{
+    display:flex;
+    gap:36px;
+    opacity:0;
+    animation:fadeUp .8s var(--ease) .65s forwards;
+  }
+  .stat b{
+    display:block;
+    font-size:1.6rem;
+    font-weight:800;
+    color:var(--ink);
+    letter-spacing:-.02em;
+  }
+  .stat span{
+    font-size:.82rem;
+    color:var(--ink-soft);
+  }
+
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(18px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  /* ---------- HERO VISUAL: Prompt terminal ---------- */
+  .hero-visual{
+    position:relative;
+    opacity:0;
+    animation:fadeUp .9s var(--ease) .4s forwards;
+  }
+  .terminal{
+    background:var(--ink);
+    border-radius:20px;
+    padding:0;
+    box-shadow:0 40px 80px -30px rgba(15,23,20,.45);
+    overflow:hidden;
+    transform:rotate(1.2deg);
+  }
+  .terminal-bar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 18px;
+    background:#1c2027;
+    border-bottom:1px solid #2a2f38;
+  }
+  .terminal-bar .dot{width:10px; height:10px; border-radius:50%;}
+  .terminal-bar .dot:nth-child(1){background:#ff5f56;}
+  .terminal-bar .dot:nth-child(2){background:#ffbd2e;}
+  .terminal-bar .dot:nth-child(3){background:#27c93f;}
+  .terminal-bar .title{
+    margin-left:auto; margin-right:auto;
+    transform:translateX(-15px);
+    color:#7c8390; font-size:.78rem; font-weight:500;
+  }
+  .terminal-body{
+    padding:24px 22px 28px;
+    font-size:.92rem;
+    min-height:260px;
+  }
+  .term-line{
+    display:flex; gap:10px;
+    margin-bottom:16px;
+    color:#e7e9e6;
+  }
+  .term-tag{
+    flex-shrink:0;
+    font-weight:700;
+    font-size:.76rem;
+    padding:3px 9px;
+    border-radius:6px;
+    height:fit-content;
+  }
+  .term-tag.user{background:#2a2f38; color:#9aa3b2;}
+  .term-tag.ai{background:rgba(15,139,108,.22); color:#4fd9b0;}
+  .typewriter{
+    border-right:2px solid #4fd9b0;
+    white-space:nowrap;
+    overflow:hidden;
+    display:inline-block;
+  }
+  .term-card{
+    margin-top:18px;
+    background:#1c2027;
+    border:1px solid #2a2f38;
+    border-radius:12px;
+    padding:14px 16px;
+    opacity:0;
+    animation:fadeUp .6s var(--ease) 2.6s forwards;
+  }
+  .term-card .label{font-size:.72rem; color:#7c8390; font-weight:600; text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px;}
+  .term-bar-row{display:flex; align-items:center; gap:10px; margin-bottom:7px;}
+  .term-bar-row span:first-child{font-size:.78rem; color:#9aa3b2; width:74px; flex-shrink:0;}
+  .term-bar-track{flex:1; height:6px; background:#2a2f38; border-radius:99px; overflow:hidden;}
+  .term-bar-fill{height:100%; background:linear-gradient(90deg, #0f8b6c, #4fd9b0); border-radius:99px; width:0%; transition:width 1.4s var(--ease);}
+
+  .float-badge{
+    position:absolute;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:10px 16px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:.82rem;
+    font-weight:600;
+    box-shadow:0 16px 30px -14px rgba(20,23,20,.2);
+    animation:floatY 4s ease-in-out infinite;
+  }
+  .float-badge.b1{top:-22px; left:-30px; animation-delay:0s;}
+  .float-badge.b2{bottom:-20px; right:-24px; animation-delay:1.4s;}
+  .float-badge .ico{width:26px; height:26px; border-radius:7px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .float-badge.b1 .ico{background:var(--amber-tint); color:var(--amber);}
+  .float-badge.b2 .ico{background:var(--emerald-tint); color:var(--emerald);}
+  @keyframes floatY{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 56px;
+  }
+  .section-eyebrow{
+    color:var(--emerald-deep);
+    font-weight:700;
+    font-size:.8rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  h2{
+    font-size:clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight:800;
+    letter-spacing:-.025em;
+    margin-bottom:16px;
+    line-height:1.2;
+  }
+  .section-sub{color:var(--ink-soft); font-size:1.02rem;}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- WHY / FEATURES ---------- */
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .feature-card{
+    background:var(--paper-tint);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px 26px;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+  }
+  .feature-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 22px 40px -18px rgba(20,23,20,.18);
+    border-color:transparent;
+    background:#fff;
+  }
+  .feature-ico{
+    width:50px; height:50px;
+    border-radius:13px;
+    background:linear-gradient(135deg, var(--emerald-tint), #fff);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--emerald-deep);
+    margin-bottom:20px;
+  }
+  .feature-card h3{font-size:1.12rem; font-weight:700; margin-bottom:10px; letter-spacing:-.01em;}
+  .feature-card p{color:var(--ink-soft); font-size:.94rem;}
+
+  /* ---------- HOW IT WORKS (real sequence -> numbered ok) ---------- */
+  .steps{
+    counter-reset:step;
+    position:relative;
+  }
+  .steps::before{
+    content:"";
+    position:absolute;
+    top:30px; bottom:30px; left:35px;
+    width:2px;
+    background:linear-gradient(var(--line), var(--line));
+    background-size:8px 14px;
+    background-repeat:repeat-y;
+  }
+  @media (min-width:769px){
+    .steps::before{display:block;}
+  }
+  .step{
+    display:grid;
+    grid-template-columns:72px 1fr;
+    gap:24px;
+    padding-bottom:44px;
+    position:relative;
+  }
+  .step:last-child{padding-bottom:0;}
+  .step-num{
+    counter-increment:step;
+    width:72px; height:72px;
+    border-radius:50%;
+    background:#fff;
+    border:2px solid var(--emerald);
+    color:var(--emerald-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800;
+    font-size:1.3rem;
+    z-index:1;
+  }
+  .step-num::before{content:counter(step, decimal-leading-zero);}
+  .step-content{padding-top:10px;}
+  .step-content h3{font-size:1.18rem; font-weight:700; margin-bottom:8px;}
+  .step-content p{color:var(--ink-soft);}
+
+  /* ---------- TOPICS ---------- */
+  .topics-wrap{
+    background:var(--ink);
+    border-radius:28px;
+    padding:64px 50px;
+    position:relative;
+    overflow:hidden;
+  }
+  .topics-wrap::before{
+    content:"";
+    position:absolute;
+    top:-150px; right:-100px;
+    width:400px; height:400px;
+    background:radial-gradient(circle, rgba(15,139,108,.35), transparent 70%);
+  }
+  .topics-head{position:relative; z-index:1; max-width:480px; margin-bottom:48px;}
+  .topics-head .section-eyebrow{color:#4fd9b0;}
+  .topics-head h2{color:#fff;}
+  .topics-head p{color:#9aa3b2;}
+  .topics-grid{
+    position:relative; z-index:1;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:#262b34;
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .topic-item{
+    background:#191d24;
+    padding:24px 26px;
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+    transition:background .3s var(--ease);
+  }
+  .topic-item:hover{background:#1f242d;}
+  .topic-item .num{
+    font-weight:800;
+    font-size:.82rem;
+    color:#4fd9b0;
+    font-family:'Poppins',sans-serif;
+    padding-top:3px;
+  }
+  .topic-item h4{color:#fff; font-size:1rem; font-weight:600; margin-bottom:4px;}
+  .topic-item p{color:#7c8390; font-size:.86rem;}
+
+  /* ---------- FOUNDER ---------- */
+  .founder{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:60px;
+    align-items:center;
+  }
+  .founder-visual{
+    position:relative;
+  }
+  .founder-card{
+    background:linear-gradient(160deg, var(--emerald-tint) 0%, #fff 60%);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:40px;
+    text-align:center;
+  }
+  .founder-avatar{
+    width:120px; height:120px;
+    border-radius:50%;
+    margin:0 auto 20px;
+    background:linear-gradient(135deg, var(--emerald), var(--emerald-deep));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:2.6rem; font-weight:800;
+    box-shadow:0 18px 36px -14px rgba(15,139,108,.5);
+  }
+  .founder-card h3{font-size:1.3rem; font-weight:800; margin-bottom:4px;}
+  .founder-card .role{color:var(--emerald-deep); font-weight:600; font-size:.9rem; margin-bottom:18px;}
+  .founder-social{display:flex; gap:10px; justify-content:center;}
+  .founder-social a{
+    width:40px; height:40px;
+    border-radius:50%;
+    background:#fff;
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft);
+    transition:all .25s var(--ease);
+  }
+  .founder-social a:hover{background:var(--emerald); color:#fff; border-color:var(--emerald); transform:translateY(-3px);}
+
+  .founder-text .section-eyebrow{text-align:left;}
+  .founder-text h2{text-align:left; margin-bottom:20px;}
+  .founder-text p{color:var(--ink-soft); margin-bottom:18px; font-size:1.02rem;}
+  .founder-text p strong{color:var(--ink); font-weight:600;}
+  .quote-block{
+    border-left:3px solid var(--emerald);
+    padding-left:20px;
+    margin-top:24px;
+    font-style:normal;
+    font-weight:500;
+    font-size:1.05rem;
+    color:var(--ink);
+  }
+
+  /* ---------- CTA / WHATSAPP ---------- */
+  .cta-section{
+    background:linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
+    border-radius:28px;
+    padding:70px 50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 20% 20%, rgba(255,255,255,.12), transparent 50%),
+               radial-gradient(circle at 80% 80%, rgba(255,255,255,.1), transparent 50%);
+  }
+  .cta-section *{position:relative; z-index:1;}
+  .cta-section h2{color:#fff; margin-bottom:14px;}
+  .cta-section p{color:rgba(255,255,255,.85); max-width:480px; margin:0 auto 32px; font-size:1.02rem;}
+  .btn-white{
+    background:#fff;
+    color:var(--emerald-deep);
+    box-shadow:0 16px 32px -12px rgba(0,0,0,.25);
+  }
+  .btn-white:hover{transform:translateY(-3px); box-shadow:0 20px 40px -12px rgba(0,0,0,.3);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:56px 0 32px;
+    border-top:1px solid var(--line);
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+  .footer-brand p{color:var(--ink-soft); font-size:.92rem; max-width:280px; margin-top:12px;}
+  .footer-cols{
+    display:flex;
+    gap:64px;
+  }
+  .footer-col h5{font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-bottom:16px;}
+  .footer-col a{
+    display:block;
+    color:var(--ink);
+    font-size:.92rem;
+    margin-bottom:11px;
+    transition:color .2s;
+  }
+  .footer-col a:hover{color:var(--emerald-deep);}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+    font-size:.84rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed;
+    bottom:26px;
+    right:26px;
+    width:60px; height:60px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 30px -10px rgba(37,211,102,.6);
+    z-index:200;
+    transition:transform .3s var(--ease);
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:2px solid #25D366;
+    animation:ring 1.8s infinite;
+  }
+  @keyframes ring{
+    0%{transform:scale(1); opacity:.7;}
+    100%{transform:scale(1.6); opacity:0;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr; gap:50px;}
+    .hero-visual{order:-1;}
+    .founder{grid-template-columns:1fr;}
+    .feature-grid{grid-template-columns:1fr 1fr;}
+    .topics-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:768px){
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .nav-cta .btn-ghost{display:none;}
+    section{padding:64px 0;}
+    .feature-grid{grid-template-columns:1fr;}
+    .topics-wrap{padding:40px 24px;}
+    .cta-section{padding:50px 26px;}
+    .footer-top{flex-direction:column;}
+    .footer-cols{gap:40px;}
+    .step{grid-template-columns:56px 1fr; gap:16px;}
+    .step-num{width:56px; height:56px; font-size:1rem;}
+    .steps::before{left:27px;}
+  }
+  @media (max-width:480px){
+    .hero{padding:90px 0 60px;}
+    .hero-stats{gap:24px;}
+    .float-badge{display:none;}
+    .footer-cols{flex-direction:column; gap:28px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <span class="mark">S</span>
+      Sahil AI School
+    </a>
+    <nav class="nav-links">
+      <a href="#kyun">Kyun Hum</a>
+      <a href="#kaise">Kaise Kaam Karta Hai</a>
+      <a href="#topics">Kya Seekhenge</a>
+      <a href="#founder">Founder</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#join" class="btn btn-ghost">Channel Join Karein</a>
+      <a href="https://whatsapp.com/channel/0029VaXXXXXXXXXX" target="_blank" rel="noopener" class="btn btn-primary">
+        WhatsApp pe Aayein
+      </a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Pakistan ka pehla AI-literacy WhatsApp channel</span>
+        <h1>AI seekhiye, <span class="accent">asaan zabaan</span> mein — kisi bhi background se ho.</h1>
+        <p class="lede">Sahil AI School har roz aapko AI tools — jaise ChatGPT, Claude aur image generators — practically use karna sikhata hai. Koi coding zaroori nahi, bas curiosity chahiye.</p>
+        <div class="hero-actions">
+          <a href="https://whatsapp.com/channel/0029VaXXXXXXXXXX" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            WhatsApp Channel Join Karein →
+          </a>
+          <a href="#topics" class="btn btn-ghost btn-lg">Curriculum Dekhein</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>Daily</b><span>Naye AI tips</span></div>
+          <div class="stat"><b>100%</b><span>Free resources</span></div>
+          <div class="stat"><b>Zero</b><span>Coding zaroorat</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="title">sahil-ai-school</span>
+          </div>
+          <div class="terminal-body">
+            <div class="term-line">
+              <span class="term-tag user">Aap</span>
+              <span class="typewriter" id="typeLine">Mujhe AI se apna business grow karna seekhna hai</span>
+            </div>
+            <div class="term-line">
+              <span class="term-tag ai">Sahil AI</span>
+              <span>Chaliye shuru karte hain — 3 asaan steps mein.</span>
+            </div>
+            <div class="term-card">
+              <div class="label">Aapki Progress</div>
+              <div class="term-bar-row"><span>Prompting</span><div class="term-bar-track"><div class="term-bar-fill" data-w="92"></div></div></div>
+              <div class="term-bar-row"><span>AI Tools</span><div class="term-bar-track"><div class="term-bar-fill" data-w="78"></div></div></div>
+              <div class="term-bar-row"><span>Automation</span><div class="term-bar-track"><div class="term-bar-fill" data-w="64"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="float-badge b1">
+          <span class="ico">⚡</span> Practical, sirf theory nahi
+        </div>
+        <div class="float-badge b2">
+          <span class="ico">🤝</span> 1-on-1 guidance milti hai
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="kyun">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Kyun Hum</div>
+        <h2>AI seekhna mushkil nahi, ghalat tareeqa mushkil banata hai</h2>
+        <p class="section-sub">Hum technical jargon ki jagah real examples aur practical use-cases pe focus karte hain.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </div>
+          <h3>Asaan Zabaan</h3>
+          <p>Har lesson aam fehm Roman Urdu/Hindi mein, bina mushkil tech terms ke.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>Roz Naya Sabaq</h3>
+          <p>WhatsApp pe daily ek chhota practical tip — apne phone se hi seekhein.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Community Support</h3>
+          <p>Sawal poochiye, doosre members se seekhein, akele struggle na karein.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="kaise">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Kaise Kaam Karta Hai</div>
+        <h2>Teen seedhe steps mein shuru karein</h2>
+        <p class="section-sub">Koi lambi registration nahi, sirf WhatsApp se judiye aur seekhna shuru karein.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num"></div>
+          <div class="step-content">
+            <h3>WhatsApp Channel Join Karein</h3>
+            <p>Ek click mein "Sahil AI School" channel ka hissa banein — bilkul free.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num"></div>
+          <div class="step-content">
+            <h3>Daily Tips Follow Karein</h3>
+            <p>Har din ek AI tool ya prompt technique seekhein — sirf 5 minute mein.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num"></div>
+          <div class="step-content">
+            <h3>Khud Practice Karein</h3>
+            <p>Apne kaam, business ya studies mein AI ko apply karein aur natija dekhein.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section id="topics">
+    <div class="wrap">
+      <div class="topics-wrap reveal">
+        <div class="topics-head">
+          <div class="section-eyebrow">Curriculum</div>
+          <h2>Aap kya kya seekhenge</h2>
+          <p>Beginner se shuru karein, practical level tak pahunchein.</p>
+        </div>
+        <div class="topics-grid">
+          <div class="topic-item">
+            <span class="num">01</span>
+            <div><h4>AI Tools ki Bunyaad</h4><p>ChatGPT, Claude, Gemini — farq aur use kab karna hai.</p></div>
+          </div>
+          <div class="topic-item">
+            <span class="num">02</span>
+            <div><h4>Prompting Seekhein</h4><p>Behtar sawal poochna, behtar jawab pana.</p></div>
+          </div>
+          <div class="topic-item">
+            <span class="num">03</span>
+            <div><h4>AI Image Generation</h4><p>Logo, design aur content ke liye images banayein.</p></div>
+          </div>
+          <div class="topic-item">
+            <span class="num">04</span>
+            <div><h4>Business Mein AI</h4><p>Marketing, customer support aur content ko automate karein.</p></div>
+          </div>
+          <div class="topic-item">
+            <span class="num">05</span>
+            <div><h4>Freelancing with AI</h4><p>AI tools se kaam tez aur behtar kaise karein.</p></div>
+          </div>
+          <div class="topic-item">
+            <span class="num">06</span>
+            <div><h4>AI Ki Limits</h4><p>Kab AI pe bharosa karein, kab apni soch use karein.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section id="founder">
+    <div class="wrap founder">
+      <div class="founder-visual reveal">
+        <div class="founder-card">
+          <div class="founder-avatar">FS</div>
+          <h3>Farukh Siddiqui</h3>
+          <div class="role">Founder, Sahil AI School</div>
+          <div class="founder-social">
+            <a href="#" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.43-4.39-1.18l-.31-.18-3.01.79.8-2.94-.2-.32A7.95 7.95 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.85 3.9 2.31 7.15 2.16 8.42 2.1 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C0 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="founder-text reveal">
+        <div class="section-eyebrow">Founder Ki Kahani</div>
+        <h2>Maqsad hai — AI ko har kisi tak pahunchana</h2>
+        <p>Main <strong>Farukh Siddiqui</strong>, Sahil AI School ka founder hoon. Mera kaam hai logon ko AI tools istemal karna sikhana — chahe wo student ho, businessman ho, ya koi bhi jo naye zamane ki technology se peechay nahi rehna chahta.</p>
+        <p>Mujhe yaqeen hai ke AI sirf "tech logon" ke liye nahi hai. Sahi rehnumai ke sath, koi bhi insan AI ko apni rozmarra zindagi aur kaam mein istemal kar sakta hai.</p>
+        <div class="quote-block">
+          "Maqsad sirf AI ke baare mein batana nahi — balke aap se AI istemal karwana hai."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="join">
+    <div class="wrap">
+      <div class="cta-section reveal">
+        <h2>Aaj hi seekhna shuru karein</h2>
+        <p>WhatsApp channel join karein aur daily AI tips, tools aur tutorials seedha apne phone par paayein — bilkul free.</p>
+        <a href="https://whatsapp.com/channel/0029VaXXXXXXXXXX" target="_blank" rel="noopener" class="btn btn-white btn-lg">
+          WhatsApp Channel Join Karein →
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="brand"><span class="mark">S</span> Sahil AI School</a>
+        <p>AI ko asaan zabaan mein sikhane wala platform — Farukh Siddiqui ke sath.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <a href="#kyun">Kyun Hum</a>
+          <a href="#kaise">Kaise Kaam Karta Hai</a>
+          <a href="#topics">Curriculum</a>
+          <a href="#founder">Founder</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="https://whatsapp.com/channel/0029VaXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp Channel</a>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sahil AI School. Sab haqooq mehfooz.</span>
+      <span>Banaya Farukh Siddiqui ne ❤️ ke sath</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://whatsapp.com/channel/0029VaXXXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp Channel Join Karein">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.43-4.39-1.18l-.31-.18-3.01.79.8-2.94-.2-.32A7.95 7.95 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+</a>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  // Animate progress bars when terminal card appears
+  window.addEventListener('load', ()=>{
+    setTimeout(()=>{
+      document.querySelectorAll('.term-bar-fill').forEach(bar=>{
+        bar.style.width = bar.dataset.w + '%';
+      });
+    }, 2900);
+  });
+
+  // Mobile burger menu toggle
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+  burger.addEventListener('click', ()=>{
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.cssText += open ? '' : 'position:absolute; top:64px; left:0; right:0; background:#fff; flex-direction:column; padding:20px 28px; border-bottom:1px solid #e7e9e6; gap:16px;';
+  });
+</script>
+
+</body>
+</html>
